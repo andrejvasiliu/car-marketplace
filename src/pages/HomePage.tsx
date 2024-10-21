@@ -1,38 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// const HomePage: React.FC = () => {
-//   const [searchTerm, setSearchTerm] = useState('');
-//   const navigate = useNavigate();
-
-//   const handleSearch = (e: React.FormEvent) => {
-//     e.preventDefault();
-//     navigate(`/search?query=${searchTerm}`);
-//   };
-
-//   return (
-//     <div>
-//       <h1>Car Marketplace</h1>
-//       <form onSubmit={handleSearch}>
-//         <input 
-//           type="text" 
-//           placeholder="Search by make or model" 
-//           value={searchTerm} 
-//           onChange={(e) => setSearchTerm(e.target.value)} 
-//         />
-//         <button type="submit">Search</button>
-//       </form>
-//     </div>
-//   );
-// };
-
 const HomePage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate(`/search?query=${searchTerm}`);
+    // Redirect to the SearchResultsPage with the query parameter
+    navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
   };
 
   return (
